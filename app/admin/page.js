@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import CardFace from "@/components/CardFace";
+import QrCode from "@/components/QrCode";
 
 const FIELDS = [
   { key: "fullName", label: "Nom & Prénom", placeholder: "Mohamed Elkhalfi" },
@@ -10,6 +11,10 @@ const FIELDS = [
   { key: "direction", label: "Direction", placeholder: "Direction Digitale" },
   { key: "phone", label: "Téléphone professionnel", placeholder: "+212 6 00 00 00 00", type: "tel" },
   { key: "email", label: "Adresse e-mail professionnelle", placeholder: "nom@entreprise.ma", type: "email" },
+  { key: "instagram", label: "Instagram", placeholder: "https://instagram.com/nom" },
+  { key: "facebook", label: "Facebook", placeholder: "https://facebook.com/nom" },
+  { key: "linkedin", label: "LinkedIn", placeholder: "https://linkedin.com/in/nom" },
+  { key: "whatsapp", label: "WhatsApp", placeholder: "+212 6 00 00 00 00" },
 ];
 
 export default function Admin() {
@@ -151,6 +156,12 @@ export default function Admin() {
           <h2 style={{ margin: 0 }}>Carte n°{selected}</h2>
           <label>Lien à écrire sur la puce NFC (une seule fois)</label>
           <div className="link">{link}</div>
+          {link ? (
+            <div className="qr-block admin-qr">
+              <QrCode value={link} size={168} />
+              <p className="qr-caption">QR code de cette carte</p>
+            </div>
+          ) : null}
 
           <label>Photo de profil</label>
           <div className="photo-row">
@@ -195,7 +206,7 @@ export default function Admin() {
           <h2>Aperçu — page NFC</h2>
           <p className="sub">Ce que le téléphone affiche au tap. L'aperçu suit les champs avant même d'enregistrer.</p>
           <div className="preview-stage">
-            <CardFace card={form} id={selected} interactive={false} />
+            <CardFace card={form} id={selected} url={link} interactive={false} />
             <p className="tap-foot">Carte NFC n°{selected}</p>
           </div>
         </aside>

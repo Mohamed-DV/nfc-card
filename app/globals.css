@@ -58,21 +58,14 @@ h1, h2 { letter-spacing: -0.03em; }
   box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
 }
 .tap-cover {
-  height: 108px;
-  background: #111;
+  height: 118px;
+  background: #ff7900;
   display: flex;
-  align-items: flex-start;
   justify-content: center;
-  padding-top: 26px;
+  align-items: flex-start;
+  padding-top: 16px;
 }
-.tap-brand {
-  margin: 0;
-  color: var(--orange);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
+.orange-logo { height: 28px; width: auto; display: block; }
 .tap-head { text-align: center; margin-top: -48px; padding: 0 22px 6px; }
 .tap-avatar {
   width: 96px;
@@ -117,6 +110,42 @@ h1, h2 { letter-spacing: -0.03em; }
   border-color: var(--orange);
   color: #fff;
 }
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding: 8px 18px 18px;
+}
+.social-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+.social-btn svg { display: block; }
+.social-btn.whatsapp { background: #25d366; }
+.social-btn.instagram { background: #e1306c; }
+.social-btn.facebook { background: #1877f2; }
+.social-btn.linkedin { background: #0a66c2; }
+.qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px 22px;
+}
+.qr-img {
+  display: block;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #eee;
+}
+.qr-caption { margin: 0; color: #8a8a8a; font-size: 12px; text-align: center; }
+.admin-qr { padding: 14px 0 0; }
+.admin-qr .qr-caption { color: var(--muted); }
 .tap-rows { padding-bottom: 8px; }
 .tap-row {
   display: block;

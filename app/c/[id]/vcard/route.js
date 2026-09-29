@@ -1,3 +1,4 @@
+import { externalUrl, whatsappUrl } from "@/lib/links";
 import { getCard, isValidId } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
@@ -31,6 +32,10 @@ export async function GET(_req, { params }) {
     c.jobTitle ? `TITLE:${esc(c.jobTitle)}` : null,
     c.phone ? `TEL;TYPE=WORK,VOICE:${c.phone.replace(/[^\d+]/g, "")}` : null,
     c.email ? `EMAIL;TYPE=WORK,INTERNET:${c.email}` : null,
+    externalUrl(c.instagram) ? `URL;TYPE=Instagram:${esc(externalUrl(c.instagram))}` : null,
+    externalUrl(c.facebook) ? `URL;TYPE=Facebook:${esc(externalUrl(c.facebook))}` : null,
+    externalUrl(c.linkedin) ? `URL;TYPE=LinkedIn:${esc(externalUrl(c.linkedin))}` : null,
+    whatsappUrl(c.whatsapp) ? `URL;TYPE=WhatsApp:${esc(whatsappUrl(c.whatsapp))}` : null,
     photoLine(c.photo),
     "END:VCARD",
   ].filter(Boolean);
